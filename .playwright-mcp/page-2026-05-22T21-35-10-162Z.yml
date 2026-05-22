@@ -1,0 +1,45 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "SmartServicesDigital Portal" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img [ref=e8]
+        - generic [ref=e10]: SmartServicesDigital Portal
+      - generic [ref=e12]: System Online
+  - main [ref=e14]:
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - generic [ref=e17]: Applications Open
+        - heading "Smart Services Portal" [level=1] [ref=e19]
+        - paragraph [ref=e20]: Apply for permits, licenses, inspections, and other municipal services. Complete the multi-step application process securely online.
+        - generic [ref=e21]:
+          - link "Start Application" [ref=e22] [cursor=pointer]:
+            - /url: /apply
+            - button "Start Application" [ref=e23]:
+              - text: Start Application
+              - img [ref=e24]
+          - button "Check Status" [ref=e26]
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - img [ref=e30]
+          - heading "Secure & Private" [level=3] [ref=e32]
+          - paragraph [ref=e33]: Your data is encrypted in transit and at rest. We follow industry-standard security practices.
+        - generic [ref=e34]:
+          - img [ref=e36]
+          - heading "Save & Resume" [level=3] [ref=e39]
+          - paragraph [ref=e40]: Your progress is automatically saved. Return anytime to complete your application.
+        - generic [ref=e41]:
+          - img [ref=e43]
+          - heading "Track Progress" [level=3] [ref=e47]
+          - paragraph [ref=e48]: Receive real-time updates on your application status via your preferred contact method.
+        - generic [ref=e49]:
+          - img [ref=e51]
+          - heading "Support Available" [level=3] [ref=e54]
+          - paragraph [ref=e55]: Need help? Our team is available during business hours to assist with your application.
+  - contentinfo [ref=e56]:
+    - generic [ref=e58]:
+      - paragraph [ref=e59]: © 2026 SmartServices Portal. All rights reserved.
+      - generic [ref=e60]:
+        - generic [ref=e61] [cursor=pointer]: Privacy Policy
+        - generic [ref=e62] [cursor=pointer]: Terms of Service
+        - generic [ref=e63] [cursor=pointer]: Accessibility
