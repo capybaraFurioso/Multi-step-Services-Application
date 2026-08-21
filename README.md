@@ -49,6 +49,7 @@ Vite reenvía `/api/*` a `http://127.0.0.1:8787`. Para otro backend, define `VIT
 
 ```bash
 npm run lint
+npm test
 npm run build
 ```
 
@@ -58,7 +59,7 @@ Estado verificado en agosto de 2026: lint y build pasan sin errores.
 
 `POST /api/applications`
 
-- `201`: solicitud aceptada con `applicationId`, `submittedAt` y días estimados.
+- `201`: solicitud aceptada con `applicationId` y `submittedAt`.
 - `400`: JSON inválido, payload incompleto o cuerpo mayor de 1 MB.
 - `404`: ruta inexistente.
 - `405`: método no permitido.
