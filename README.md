@@ -1,73 +1,66 @@
-# React + TypeScript + Vite
+# Multi-step Services Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación React para completar y enviar una solicitud de servicio en cinco pasos, con validación por esquema, persistencia temporal y consumo de una API HTTP local.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19 + TypeScript
+- React Hook Form
+- Zod
+- React Router
+- Vite 8 + Tailwind CSS 4
+- API Node.js sin dependencias externas
 
-## React Compiler
+## Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Pasos de datos personales, dirección, servicio, documentos y revisión.
+- Validación independiente por paso con Zod.
+- Errores de campo integrados con React Hook Form.
+- Borrador en `localStorage` con escritura diferida y recuperación automática.
+- Carga de documentos con estados visuales.
+- Envío HTTP real a `POST /api/applications`.
+- Estados de carga, respuesta exitosa, errores de validación y fallos de red.
+- Toasts, error boundary y navegación protegida entre pasos.
+- Layout adaptable para escritorio y móvil.
 
-## Expanding the ESLint configuration
+## Ejecutar
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Instala dependencias:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Inicia la API en una terminal:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run api
 ```
+
+Inicia Vite en otra terminal:
+
+```bash
+npm run dev
+```
+
+Vite reenvía `/api/*` a `http://127.0.0.1:8787`. Para otro backend, define `VITE_APPLICATIONS_API_URL`.
+
+## Validar producción
+
+```bash
+npm run lint
+npm run build
+```
+
+Estado verificado en agosto de 2026: lint y build pasan sin errores.
+
+## Contrato de API
+
+`POST /api/applications`
+
+- `201`: solicitud aceptada con `applicationId`, `submittedAt` y días estimados.
+- `400`: JSON inválido, payload incompleto o cuerpo mayor de 1 MB.
+- `404`: ruta inexistente.
+- `405`: método no permitido.
+
+La API incluida conserva los datos solo durante la solicitud; funciona como contrato de integración para esta demostración y no afirma persistencia en una base de datos.

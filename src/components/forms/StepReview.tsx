@@ -58,9 +58,9 @@ export function StepReview({ onEditStep }: StepReviewProps) {
       ?.label ?? values.serviceDetails.serviceType
 
   const urgencyLabels = {
-    standard: 'Standard (10-15 days)',
-    expedited: 'Expedited (3-5 days)',
-    emergency: 'Emergency (24 hours)',
+    standard: 'Standard demo priority',
+    expedited: 'High demo priority',
+    emergency: 'Critical demo priority',
   } as const
 
   return (
@@ -154,9 +154,8 @@ export function StepReview({ onEditStep }: StepReviewProps) {
 
       <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
         <p className="text-sm text-slate-700">
-          By submitting this application, you confirm that all information is
-          accurate and complete. False or misleading information may result in
-          denial or revocation of services.
+          This submission is sent only to the local demonstration API. Do not
+          enter real personal information or identity documents.
         </p>
       </div>
     </div>

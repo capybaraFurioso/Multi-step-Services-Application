@@ -1,37 +1,25 @@
 import type { ApiResponse, ApplicationFormData, SubmissionResult } from '@/types'
 
-function delay(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms))
-}
+const APPLICATIONS_ENDPOINT =
+  import.meta.env.VITE_APPLICATIONS_API_URL ?? '/api/applications'
 
 export async function submitApplication(
   data: ApplicationFormData
 ): Promise<ApiResponse<SubmissionResult>> {
-  await delay(2000 + Math.random() * 1500)
+  const response = await fetch(APPLICATIONS_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+    signal: AbortSignal.timeout(10_000),
+  })
 
-  const shouldSucceed = Math.random() > 0.15
-
-  if (!shouldSucceed) {
+  const payload = (await response.json()) as ApiResponse<SubmissionResult>
+  if (!response.ok) {
     return {
       success: false,
-      error:
-        'We encountered an issue processing your application. Please try again.',
+      error: payload.error ?? 'The server could not process the application.',
     }
   }
 
-  const applicationId = `APP-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`
-
-  return {
-    success: true,
-    data: {
-      applicationId,
-      submittedAt: new Date().toISOString(),
-      estimatedProcessingDays:
-        data.serviceDetails.urgency === 'emergency'
-          ? 1
-          : data.serviceDetails.urgency === 'expedited'
-            ? 5
-            : 15,
-    },
-  }
+  return payload
 }
