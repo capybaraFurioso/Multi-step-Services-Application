@@ -28,8 +28,8 @@ export function SuccessScreen({ result, onStartNew }: SuccessScreenProps) {
           Application Submitted
         </h1>
         <p className="mt-2 text-sm text-slate-600">
-          Your application has been received and is being processed. You will
-          receive a confirmation email shortly.
+          The local demonstration API accepted the fictional test data and
+          generated the reference below. No email or external service is used.
         </p>
 
         <div className="mt-8 rounded-lg bg-slate-50 p-5">
@@ -68,13 +68,8 @@ export function SuccessScreen({ result, onStartNew }: SuccessScreenProps) {
             </dd>
           </div>
           <div className="flex justify-between py-3">
-            <dt className="text-sm text-slate-500">Est. processing</dt>
-            <dd className="text-sm font-medium text-slate-900">
-              {result.estimatedProcessingDays}{' '}
-              {result.estimatedProcessingDays === 1
-                ? 'business day'
-                : 'business days'}
-            </dd>
+            <dt className="text-sm text-slate-500">Endpoint</dt>
+            <dd className="text-sm font-medium text-slate-900">Local REST demo</dd>
           </div>
         </dl>
 

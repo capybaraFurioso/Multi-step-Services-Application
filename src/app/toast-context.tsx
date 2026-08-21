@@ -1,5 +1,4 @@
-import { createContext, useContext, type ReactNode } from 'react'
-import { useToast } from '@/hooks/useToast'
+import { createContext, useContext } from 'react'
 import type { ToastMessage } from '@/types'
 
 interface ToastContextValue {
@@ -8,15 +7,7 @@ interface ToastContextValue {
   removeToast: (id: string) => void
 }
 
-const ToastContext = createContext<ToastContextValue | null>(null)
-
-export function ToastProvider({ children }: { children: ReactNode }) {
-  const toast = useToast()
-
-  return (
-    <ToastContext.Provider value={toast}>{children}</ToastContext.Provider>
-  )
-}
+export const ToastContext = createContext<ToastContextValue | null>(null)
 
 export function useToastContext(): ToastContextValue {
   const context = useContext(ToastContext)

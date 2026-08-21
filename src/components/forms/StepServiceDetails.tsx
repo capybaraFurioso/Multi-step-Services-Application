@@ -12,17 +12,17 @@ const URGENCY_OPTIONS = [
   {
     value: 'standard',
     label: 'Standard',
-    description: '10-15 business days',
+    description: 'Default demo priority',
   },
   {
     value: 'expedited',
     label: 'Expedited',
-    description: '3-5 business days',
+    description: 'High demo priority',
   },
   {
     value: 'emergency',
     label: 'Emergency',
-    description: '24 hours (additional fees apply)',
+    description: 'Critical demo priority',
   },
 ] as const
 
@@ -156,16 +156,8 @@ export function StepServiceDetails() {
               {...register('serviceDetails.agreeToTerms')}
             />
             <span className="text-sm text-slate-700">
-              I agree to the{' '}
-              <span className="font-medium text-slate-900 underline">
-                Terms of Service
-              </span>{' '}
-              and{' '}
-              <span className="font-medium text-slate-900 underline">
-                Privacy Policy
-              </span>
-              . I confirm that all information provided is accurate and
-              complete.
+              I understand this is a portfolio demonstration and confirm that
+              the information entered is fictional test data.
             </span>
           </label>
           {e?.agreeToTerms && (

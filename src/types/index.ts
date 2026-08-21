@@ -31,7 +31,6 @@ export interface ApiResponse<T> {
 export interface SubmissionResult {
   applicationId: string
   submittedAt: string
-  estimatedProcessingDays: number
 }
 
 export interface WizardStep {

@@ -44,8 +44,8 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
               Something went wrong
             </h2>
             <p className="mt-2 text-sm text-slate-600">
-              An unexpected error occurred. Please try again or contact support
-              if the problem persists.
+              An unexpected error occurred. Try resetting this screen; your
+              saved draft will remain available in this browser.
             </p>
             {this.state.error && (
               <pre className="mt-3 max-h-24 overflow-auto rounded-lg bg-slate-100 p-3 text-left text-xs text-slate-700">

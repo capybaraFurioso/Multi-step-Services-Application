@@ -12,27 +12,27 @@ import { Button } from '@/components/ui/Button'
 const features = [
   {
     icon: Shield,
-    title: 'Secure & Private',
+    title: 'Schema Validation',
     description:
-      'Your data is encrypted in transit and at rest. We follow industry-standard security practices.',
+      'React Hook Form and Zod validate each step before the user can continue.',
   },
   {
     icon: Clock,
-    title: 'Save & Resume',
+    title: 'Draft Persistence',
     description:
       'Your progress is automatically saved. Return anytime to complete your application.',
   },
   {
     icon: FileCheck,
-    title: 'Track Progress',
+    title: 'HTTP Submission',
     description:
-      'Receive real-time updates on your application status via your preferred contact method.',
+      'Completed applications are sent to the included local REST endpoint with loading and success states.',
   },
   {
     icon: HelpCircle,
-    title: 'Support Available',
+    title: 'Recoverable Errors',
     description:
-      'Need help? Our team is available during business hours to assist with your application.',
+      'Validation, network, and unexpected application errors produce visible recovery paths.',
   },
 ]
 
@@ -42,7 +42,7 @@ export function HomePage() {
       <div className="mx-auto max-w-2xl text-center">
         <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-          Applications Open
+          Functional Local Demo
         </div>
 
         <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -50,8 +50,8 @@ export function HomePage() {
         </h1>
         <p className="mt-4 text-base text-slate-600 leading-relaxed">
           Apply for permits, licenses, inspections, and other municipal
-          services. Complete the multi-step application process securely
-          online.
+          services. This portfolio demo validates, saves, and submits an
+          application to its included local API.
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
@@ -61,9 +61,6 @@ export function HomePage() {
               <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
-          <Button variant="secondary" size="lg">
-            Check Status
-          </Button>
         </div>
       </div>
 
